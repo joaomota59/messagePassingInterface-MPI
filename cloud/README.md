@@ -1,1 +1,0 @@
-# messagePassingInterface-MPI
