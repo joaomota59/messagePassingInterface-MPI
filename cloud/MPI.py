@@ -10,6 +10,7 @@ def mpiPI(i=1,N=840):#funcao que calcula o valor aprox de pi
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 idmaquina = MPI.Get_processor_name()
-print("Ola processo",rank,"na maquina ",idmaquina)
+
+print("ID do processo = ["+str(rank)+"] na maquina "+str(idmaquina) + " PI = " + str(mpiPI()))
 
 
