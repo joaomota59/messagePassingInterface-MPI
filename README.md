@@ -41,3 +41,14 @@ mpiexec -np 5 --hostfile maqs.txt python3 MPI.py
 * Obs o numero após np significa a quantidade de processos que serão distribuídos entre as máquinas.
 * O arquivo maqs.txt contém o hostname das máquinas em que a máquina Linux OK se conectará para distribuir os processos.
 
+## Erro de hostfile
+* Se ocorrer algum erro de hostfile vá na LINUX OK e faça os seguintes comandos:
+```bash
+su - mpiuser
+cd cloud
+rm maqs.txt
+echo maq2 >> maqs.txt
+echo maq3 >> maqs.txt
+echo maq4 >> maqs.txt
+```
+* Em seguida tente executar o programa novamente.
