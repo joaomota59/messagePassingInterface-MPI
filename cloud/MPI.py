@@ -11,6 +11,23 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 idmaquina = MPI.Get_processor_name()
 
-print("ID do processo = ["+str(rank)+"] na maquina "+str(idmaquina) + " PI = " + str(mpiPI()))
+#Elementos na comunicação
+print("Quantidade de processos no comunicador = " + str(comm.Get_size()))
+
+#1 fazer com que todos calculem o valor de PI 
+#PS: Falta medir o tempo!!
+#print("ID do processo = ["+str(rank)+"] na maquina "+str(idmaquina) + " PI = " + str(mpiPI()))
+
+
+#Enviar um dado específico para algum processo 
+#tag e o id da mensagem - envio uma msg com um id e espero receber a msg com o mesmo id
+if rank == 0:
+	print("Processo " + str(rank) +  " enviando o numero 100 para o processo 1")
+	comm.send(100, dest=1,tag=11)
+if rank == 1:
+	print("Processo " + str(rank) + " mostrando o que recebeu do processo 0")
+	n = comm.recv(source=0,tag=11)
+	#print(str(n))
+	print("Processo",rank, "recebeu o numero ",n)
 
 
