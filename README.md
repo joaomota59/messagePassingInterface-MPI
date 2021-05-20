@@ -10,7 +10,7 @@
 * Abra cada máquina virtual
 * **Login**: aluno **Senha**: 123456 
 
-* Ponto de montagem: /home/mpiuser/cloud
+* Ponto de montagem: **/home/mpiuser/cloud**
 
 * No terminal das máquinas Linux OK2, Linux OK3 e Linux OK4, faça:
 ```shell
