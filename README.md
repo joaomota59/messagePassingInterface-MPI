@@ -17,7 +17,7 @@ mount -t nfs maq1:/home/mpiuser/cloud /home/mpiuser/cloud
 ```
 Esse comando acima, vai compartilhar a pasta cloud da máquina 1 com as outras máquinas 
 
-* Na máquina Linux OK, faça:
+* Na máquina Linux OK,Linux OK2, Linux OK3, Linux OK4 faça:
 ```shell
 sudo mount -t vboxsf cloud /home/mpiuser/cloud 
 ```
