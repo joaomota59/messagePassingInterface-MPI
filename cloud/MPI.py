@@ -11,5 +11,5 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 idmaquina = MPI.Get_processor_name()
 print("Ola processo",rank,"na maquina ",idmaquina)
-print("oi")
+
 
