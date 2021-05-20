@@ -32,6 +32,8 @@ Para executar o script execute somente pela máquina Linux OK e deixe as outras 
 * Em seguida, no linux OK, entre com o comando:
 
 ```shell
+su - mpiuser
+cd cloud
 mpiexec -np 5 --hostfile maqs.txt python3 MPI.py
 ```
 * Obs o numero após np significa a quantidade de processos que serão distribuídos entre as máquinas.
