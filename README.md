@@ -21,7 +21,7 @@ Esse comando acima, vai compartilhar a pasta cloud da máquina 1 com as outras m
 ```shell
 sudo mount -t vboxsf cloud /home/mpiuser/cloud 
 ```
-Esse comando vai associar a pasta cloud que foi criada no Windows com a pasta cloud do Linux
+Esse comando vai associar a pasta cloud que foi criada no Windows com a pasta cloud do Linux, em cada máquina virtual.
 
 Agora para fazer qualquer edição no algoritmo basta abrir a pasta pelo windows.
 Para executar o script execute somente pela máquina Linux OK e deixe as outras ligadas.
