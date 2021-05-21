@@ -12,13 +12,6 @@ def mpiPI(nroProcesso):#funcao que calcula o valor aprox de pi
         somatorio += 1/(1+((j-0.5)/N)**2)
     return ((somatorio/N)*4)/nroProcesso
 
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-idmaquina = MPI.Get_processor_name()
-
-#Elementos na comunicação
-print("Quantidade de processos no comunicador = " + str(comm.Get_size()))
-
 #1 fazer com que todos calculem o valor de PI 
 #PS: Falta medir o tempo!!
 #print("ID do processo = ["+str(rank)+"] na maquina "+str(idmaquina) + " PI = " + str(mpiPI()))
@@ -38,19 +31,25 @@ if rank == 1:
 	print("Processo",rank, "recebeu o numero ",n)
 '''
 
-if rank == 0:
-	res0 = mpiPI(comm.Get_size())
-	print("Resposta do processo [" + str(rank) + "] = " + str(res0))
-if rank == 1:
-	res1 = mpiPI(comm.Get_size())
-	print("Resposta do processo [" + str(rank) + "] = " + str(res1))
-	#print(str(n))
-	#print("Processo",rank, "recebeu o numero ",n)
-if rank == 2:
-	res2 = mpiPI(comm.Get_size())
-	print("Resposta do processo [" + str(rank) + "] = " + str(res2))
 
 
-
-
+if __name__ == "__main__": #main -- Segunda versão
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()#rank do processo atual
+    idmaquina = MPI.Get_processor_name()#hostname damaquina
+    #Elementos na comunicação
+    #print("Quantidade de processos no comunicador = " + str(comm.Get_size()))
+    #versao = input("ok")
+    if rank == 0:
+            res0 = mpiPI(comm.Get_size())
+            k = ("Resposta do processo [" + str(rank) + "] = " + str(res0)+ " ID Máquina = "+str(idmaquina))
+            print("-"*len(k)+"\n"+k+"\n")
+    if rank == 1:
+            res1 = mpiPI(comm.Get_size())
+            k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))
+            print("-"*len(k)+"\n"+k+"\n")
+    if rank == 2:
+            res2 = mpiPI(comm.Get_size())
+            k = ("Resposta do processo [" + str(rank) + "] = " + str(res2) + " ID Máquina = "+str(idmaquina))
+            print("-"*len(k)+"\n"+k+"\n")
 
