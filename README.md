@@ -6,11 +6,12 @@
 * Clique [aqui](https://drive.google.com/file/d/1Ls0aK9VIoZbdWka1UbynlR1Z9GjzfwRQ/view?usp=sharing) para fazer o download das máquinas virtuais já configuradas.
 * Faça a instalação das máquinas virtuais Linux.
 * Selecione a máquina linux OK, vá em configurações > Pastas Compartilhadas > Acrescenta uma nova pasta compartilhada ,que é a pasta deste repositório ,com o nome cloud, marque as opções montar automaticamente e tornar permanente, desmarque a opção somente leitura.
+* Ponto de montagem: **/home/mpiuser/cloud**
+![Configuração para cada máquina](https://imgur.com/LsxTEsO.png)
 * Salve todas essas configurações
 * Abra cada máquina virtual
 * **Login**: aluno **Senha**: 123456 
 
-* Ponto de montagem: **/home/mpiuser/cloud**
 
 * No terminal das máquinas Linux OK2, Linux OK3 e Linux OK4, faça:
 ```shell
