@@ -9,7 +9,7 @@
 * Ponto de montagem: **/home/mpiuser/cloud**
 ![Configuração para cada máquina](https://imgur.com/LsxTEsO.png)
 * Salve todas essas configurações
-* E repita esse processo acima para as máquina Linux OK2, Linux OK3 e Linux OK4.
+* Repita esse processo acima para as máquinas Linux OK2, Linux OK3 e Linux OK4.
 * Abra cada máquina virtual
 * **Login**: aluno **Senha**: 123456 
 
