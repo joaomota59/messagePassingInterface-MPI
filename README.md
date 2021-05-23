@@ -57,12 +57,12 @@ echo maq4 >> maqs.txt
 * Em seguida tente executar o programa novamente.
 
 ## Versões do Algoritmo
->> Depois de entrar na pasta cloud dentro de mpiuser, na máquina LINUX OK, digite os comandos seguintes comandos:
+> Depois de entrar na pasta cloud dentro de mpiuser, na máquina LINUX OK, digite os comandos seguintes comandos:
 ### Primeira Versão - MPI.py
 ```shell
 mpiexec -np 4 --hostfile maqs.txt python3 MPI.py
 ```
-* Cada nó do cluster calcule de maneira independente o valor de π
+* Cada nó do cluster calcula de maneira independente o valor de π.
 ### Segunda Versão - MPI2.py
 ```shell
 mpiexec -np 2 --hostfile maqs.txt python3 MPI2.py
