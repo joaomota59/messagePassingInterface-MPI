@@ -45,7 +45,7 @@ mpiexec -np 5 --hostfile maqs.txt python3 MPI.py
 
 ## Erro de hostfile
 * Se ocorrer algum erro de hostfile vá na LINUX OK e faça os seguintes comandos:
-```bash
+```shell
 su - mpiuser
 cd cloud
 rm maqs.txt
@@ -57,7 +57,14 @@ echo maq4 >> maqs.txt
 * Em seguida tente executar o programa novamente.
 
 ## Versões do Algoritmo
+>> Depois de entrar na pasta cloud dentro de mpiuser, na máquina LINUX OK, digite os comandos seguintes comandos:
 ### Primeira Versão - MPI.py
+```shell
+mpiexec -np 4 --hostfile maqs.txt python3 MPI.py
+```
 * Cada nó do cluster calcule de maneira independente o valor de π
 ### Segunda Versão - MPI2.py
+```shell
+mpiexec -np 2 --hostfile maqs.txt python3 MPI2.py
+```
 * Diferentes processos no cluster calculem o valor do somatório para diferentes intervalos de i. Exemplo: Considere ter 2 processos, o processo de rank 0 calcula o somatório para i de 1 a N/2 e o processo de rank 1 calcula o somatório para i de N/2+1 a N.
