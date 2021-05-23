@@ -55,3 +55,9 @@ echo maq3 >> maqs.txt
 echo maq4 >> maqs.txt
 ```
 * Em seguida tente executar o programa novamente.
+
+## Versões do Algoritmo
+### Primeira Versão - MPI.py
+* Cada nó do cluster calcule de maneira independente o valor de π
+### Segunda Versão - MPI2.py
+* Diferentes processos no cluster calculem o valor do somatório para diferentes intervalos de i. Exemplo: Considere ter 2 processos, o processo de rank 0 calcula o somatório para i de 1 a N/2 e o processo de rank 1 calcula o somatório para i de N/2+1 a N.
