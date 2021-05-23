@@ -52,4 +52,8 @@ if __name__ == "__main__": #main -- Segunda versão
             res2 = mpiPI(comm.Get_size())
             k = ("Resposta do processo [" + str(rank) + "] = " + str(res2) + " ID Máquina = "+str(idmaquina))
             print("-"*len(k)+"\n"+k+"\n")
+    if rank == 3:
+            res2 = mpiPI(comm.Get_size())
+            k = ("Resposta do processo [" + str(rank) + "] = " + str(res2) + " ID Máquina = "+str(idmaquina))
+            print("-"*len(k)+"\n"+k+"\n")
 
