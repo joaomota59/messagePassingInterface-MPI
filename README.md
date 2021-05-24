@@ -51,7 +51,6 @@ cd cloud
 rm maqs.txt
 echo maq1 >> maqs.txt
 echo maq2 >> maqs.txt
-echo maq3 >> maqs.txt
 echo maq4 >> maqs.txt
 ```
 * Em seguida tente executar o programa novamente.
