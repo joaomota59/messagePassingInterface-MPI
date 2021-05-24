@@ -69,8 +69,15 @@ mpiexec -np 2 --hostfile maqs.txt python3 MPI2.py
 * Diferentes processos no cluster calculem o valor do somatório para diferentes intervalos de i. Exemplo: Considere ter 2 processos, o processo de rank 0 calcula o somatório para i de 1 a N/2 e o processo de rank 1 calcula o somatório para i de N/2+1 a N.
 
 ### Terceira Versão - MPI3.py
-```bash
-mpiexec -np 5 --hostfile maqs.txt python3 MPI2.py
+```shell
+mpiexec -np 5 --hostfile maqs.txt python3 MPI3.py
 ```
 * Os recursos da biblioteca MPI são utilizados para dividir a operação de somatório entre vários processos (observe que o número de processos deve ser múltiplo de N=840) e cada processo realize o seu cálculo, o envio do resultado deve ser enviado para o processo mestre que recebe esses valores a utilição do send e recv é feita nessa versão.
 * Obs: Como dito no item anterior, o número após -np deve ser multiplo de 840!
+
+### Quarta Versão - MPI4.py
+```shell
+mpiexec -np 5 --hostfile maqs.txt python3 MPI4.py
+```
+* Mesma ideia da **Terceira Versão** porém, utiliza-se o método reduce.
+* Obs: O número após -np deve ser multiplo de 840!
