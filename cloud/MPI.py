@@ -37,23 +37,10 @@ if __name__ == "__main__": #main -- Segunda versão
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()#rank do processo atual
     idmaquina = MPI.Get_processor_name()#hostname damaquina
+    res1 = mpiPI(1)
+    k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))
+    print("-"*len(k)+"\n"+k+"\n")
     #Elementos na comunicação
     #print("Quantidade de processos no comunicador = " + str(comm.Get_size()))
-    #versao = input("ok")
-    if rank == 0:
-            res0 = mpiPI(comm.Get_size())
-            k = ("Resposta do processo [" + str(rank) + "] = " + str(res0)+ " ID Máquina = "+str(idmaquina))
-            print("-"*len(k)+"\n"+k+"\n")
-    if rank == 1:
-            res1 = mpiPI(comm.Get_size())
-            k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))
-            print("-"*len(k)+"\n"+k+"\n")
-    if rank == 2:
-            res2 = mpiPI(comm.Get_size())
-            k = ("Resposta do processo [" + str(rank) + "] = " + str(res2) + " ID Máquina = "+str(idmaquina))
-            print("-"*len(k)+"\n"+k+"\n")
-    if rank == 3:
-            res2 = mpiPI(comm.Get_size())
-            k = ("Resposta do processo [" + str(rank) + "] = " + str(res2) + " ID Máquina = "+str(idmaquina))
-            print("-"*len(k)+"\n"+k+"\n")
+    
 
