@@ -1,16 +1,18 @@
 from mpi4py import MPI
 
-# rank 0 (1 - N/2) 
-# rank 1 (N/2+1 - N)
-
-
-def mpiPI(nroProcesso):#funcao que calcula o valor aprox de pi
-    i = 1
+def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     N = 840
+    i = int(1 + (N/nroProcesso)*rank)
+    if rank == nroProcesso - 1:#quando for o ultimo processo
+        k = 840
+    else:
+        k = int((N/nroProcesso)*(rank+1))
     somatorio = 0
-    for j in range(i,N+1):
+    for j in range(i,k+1):
         somatorio += 1/(1+((j-0.5)/N)**2)
-    return ((somatorio/N)*4)/nroProcesso
+    #print(i,k)#intervalos
+    #print((somatorio/N)*4)#somatorio de cada intervalo
+    return (somatorio/N)*4
 
 #1 fazer com que todos calculem o valor de PI 
 #PS: Falta medir o tempo!!
@@ -27,7 +29,7 @@ if __name__ == "__main__": #main -- Segunda versão
     else:#se for divisivel por 840 entao divide entre os processos
         idmaquina = MPI.Get_processor_name()#hostname damaquina
         if rank == 0:
-            res1 = mpiPI(numDeProcessos)
+            res1 = mpiPI(numDeProcessos,rank)
             #k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))
             #print("-"*len(k)+"\n"+k+"\n")
             buffer = [res1]#buffer que guarda todos os resultados dos processos
@@ -35,7 +37,7 @@ if __name__ == "__main__": #main -- Segunda versão
                 buffer.append(comm.recv(source = i))
             print("Soma de todos processos:",sum(buffer))
         else:#se for qualquer processo diferente do processo 1
-            res1 = mpiPI(numDeProcessos)
+            res1 = mpiPI(numDeProcessos,rank)
             comm.send(res1,dest = 0)
             #k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))
             #print("-"*len(k)+"\n"+k+"\n")
