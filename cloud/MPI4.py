@@ -5,13 +5,19 @@ import numpy
 # rank 1 (N/2+1 - N)
 
 
-def mpiPI(nroProcesso):#funcao que calcula o valor aprox de pi
-    i = 1
+def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     N = 840
+    i = int(1 + (N/nroProcesso)*rank)
+    if rank == nroProcesso - 1:#quando for o ultimo processo
+        k = 840
+    else:
+        k = int((N/nroProcesso)*(rank+1))
     somatorio = 0
-    for j in range(i,N+1):
+    for j in range(i,k+1):
         somatorio += 1/(1+((j-0.5)/N)**2)
-    return ((somatorio/N)*4)/nroProcesso
+    #print(i,k)#intervalos
+    #print((somatorio/N)*4)#somatorio de cada intervalo
+    return (somatorio/N)*4
 
 #1 fazer com que todos calculem o valor de PI 
 #PS: Falta medir o tempo!!
@@ -29,7 +35,7 @@ if __name__ == "__main__": #main -- Segunda versão
     else:#se for divisivel por 840 entao divide entre os processos
         idmaquina = MPI.Get_processor_name()#hostname damaquina
         #se for qualquer processo diferente do processo 1
-        processoPI[0]= mpiPI(numDeProcessos)
+        processoPI[0]= mpiPI(numDeProcessos,rank)
         print("Resposta do processo [" + str(rank) + "] = " + str(processoPI[0]) + " ID Máquina = "+str(idmaquina))
         comm.Reduce(processoPI,total,op = MPI.SUM,root = 0)
         if rank == 0:
