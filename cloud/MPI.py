@@ -4,13 +4,13 @@ from mpi4py import MPI
 # rank 1 (N/2+1 - N)
 
 
-def mpiPI(nroProcesso):#funcao que calcula o valor aprox de pi
+def mpiPI():#funcao que calcula o valor aprox de pi
     i = 1
     N = 840
     somatorio = 0
     for j in range(i,N+1):
         somatorio += 1/(1+((j-0.5)/N)**2)
-    return ((somatorio/N)*4)/nroProcesso
+    return (somatorio/N)*4
 
 #1 fazer com que todos calculem o valor de PI 
 #PS: Falta medir o tempo!!
@@ -37,7 +37,7 @@ if __name__ == "__main__": #main -- Segunda versão
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()#rank do processo atual
     idmaquina = MPI.Get_processor_name()#hostname damaquina
-    res1 = mpiPI(1)
+    res1 = mpiPI()
     k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))
     print("-"*len(k)+"\n"+k+"\n")
     #Elementos na comunicação
