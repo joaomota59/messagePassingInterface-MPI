@@ -139,6 +139,7 @@ for i in {1..300}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cl
 ![Quarta Versão](https://imgur.com/4QhVNaI.png)
 
 ### Testes com algoritmos rodando Nx vezes. Considere o N = número de vezes que o algoritmo foi executado, ou seja...
+> * Obs: Foi adotado N = 300 em todos testes abaixo!
 * Primeira Versão - MPI.py
 ![Primeira Versão](https://imgur.com/0M3w5qx.png)
 
