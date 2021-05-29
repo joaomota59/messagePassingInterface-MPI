@@ -100,3 +100,65 @@ mpiexec -np 5 --hostfile maqs.txt python3 MPI4.py
 * Mesma ideia da **Terceira Versão** porém, utiliza-se o método reduce.
 * Obs: O número após -np deve ser multiplo de 840!
 * Esta versão foi criada para observar o tempo de execução de **processamento** do algoritmo, observando o tempo de execução do processo que durou mais e incluindo com o **tempo de troca de mensagens**.
+
+### Comando para executar 300 vezes cada script
+
+```bash
+for i in {1..300}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cloud/MPI.py; done
+```
+* OBS:
+> * O número após -np é o número de processos correspondente a cada versão!
+> * O arquivo correspondente após /cloud/ deve ser passado neste exemplo foi MPI.py
+
+
+## Testes
+
+### Testes com algoritmos rodando somente uma vez, mostrando o resultado calculado por cada processo e o tempo de execução
+* Primeira Versão - MPI.py
+![Primeira Versão](https://imgur.com/AwVuU1f.png)
+
+* Segunda Versão - MPI2.py
+![Segunda Versão](https://imgur.com/OIbtn8V.png)
+
+* Terceira Versão - MPI3-1.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos
+![Terceira Versão](https://imgur.com/59xWSRt.png)
+
+* Terceira Versão - MPI3-2.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos incluindo o tempo com troca de mensagens.
+![Terceira Versão](https://imgur.com/xGLDTZN.png)
+
+* Terceira Versão - MPI3-2.py - Resultado para 5 processos - Resultado individual de cada processo
+![Terceira Versão](https://imgur.com/P0bOyhg.png)
+
+* Quarta Versão - MPI4-1.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos
+![Quarta Versão](https://imgur.com/PEvZa1K.png)
+
+* Quarta Versão - MPI4-2.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos incluindo o tempo com troca de mensagens.
+![Quarta Versão](https://imgur.com/6IHrBeQ.png)
+
+* Quarta Versão - MPI4-2.py - Resultado para 5 processos - Resultado individual de cada processo
+![Quarta Versão](https://imgur.com/4QhVNaI.png)
+
+### Testes com algoritmos rodando Nx vezes. Considere o N = número de vezes que o algoritmo foi executado, ou seja...
+> * Obs: Foi adotado N = 300 em todos testes abaixo!
+> * Obs2: O tempo mostrado é a soma dos tempos obtidos em cada execução.
+* Primeira Versão - MPI.py
+![Primeira Versão](https://imgur.com/0M3w5qx.png)
+
+* Segunda Versão - MPI2.py
+![Segunda Versão](https://imgur.com/FIqIHgV.png)
+
+* Terceira Versão - MPI3-1.py - Tempo de execução para 10 processos executado N vezes/ tempo da execução dos cálculos
+![Terceira Versão](https://imgur.com/xW0QojW.png)
+
+* Terceira Versão - MPI3-2.py - Tempo de sendv e recv para 10 processos executado N vezes/ tempo da comunicação entre processos
+![Terceira Versão](https://imgur.com/hnPgq0K.png)
+
+
+
+* Quarta Versão - MPI4-1.py - Tempo de execução para 10 processos executado N vezes/ tempo da execução dos cálculos
+![Quarta Versão](https://imgur.com/NULBCgn.png)
+
+* Quarta Versão - MPI4-2.py - Tempo de sendv e recv para 10 processos executado N vezes/ tempo da comunicação entre processos
+![Quarta Versão](https://imgur.com/gQzj87s.png)
+
+
