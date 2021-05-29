@@ -138,7 +138,7 @@ for i in {1..100}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cl
 * Quarta Versão - MPI4-2.py - Resultado para 5 processos - Resultado individual de cada processo
 ![Quarta Versão](https://imgur.com/4QhVNaI.png)
 
-### Testes com algoritmos rodando 300x. Ou seja 
+### Testes com algoritmos rodando Nx vezes. Considere o N = número de vezes que o algoritmo foi executado, ou seja...
 * Primeira Versão - MPI.py
 ![Primeira Versão](https://imgur.com/0M3w5qx.png)
 
