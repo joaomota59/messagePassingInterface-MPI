@@ -144,20 +144,20 @@ for i in {1..300}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cl
 ![Primeira Versão](https://imgur.com/0M3w5qx.png)
 
 * Segunda Versão - MPI2.py
-![Segunda Versão](https://imgur.com/QhS9dvV.png)
+![Segunda Versão](https://imgur.com/FIqIHgV.png)
 
 * Terceira Versão - MPI3-1.py - Tempo de execução para 10 processos executado N vezes/ tempo da execução dos cálculos
-![Terceira Versão](https://imgur.com/ort7xp7.png)
+![Terceira Versão](https://imgur.com/xW0QojW.png)
 
 * Terceira Versão - MPI3-2.py - Tempo de sendv e recv para 10 processos executado N vezes/ tempo da comunicação entre processos
-![Terceira Versão](https://imgur.com/Y6SkIA2.png)
+![Terceira Versão](https://imgur.com/hnPgq0K.png)
 
 
 
 * Quarta Versão - MPI4-1.py - Tempo de execução para 10 processos executado N vezes/ tempo da execução dos cálculos
-![Quarta Versão](https://imgur.com/y5ocA5O.png)
+![Quarta Versão](https://imgur.com/NULBCgn.png)
 
 * Quarta Versão - MPI4-2.py - Tempo de sendv e recv para 10 processos executado N vezes/ tempo da comunicação entre processos
-![Quarta Versão](https://imgur.com/UhEZbOv.png)
+![Quarta Versão](https://imgur.com/gQzj87s.png)
 
 
