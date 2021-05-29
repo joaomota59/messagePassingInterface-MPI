@@ -104,5 +104,5 @@ mpiexec -np 5 --hostfile maqs.txt python3 MPI4.py
 ### Comando para executar 100 vezes cada script
 
 ```bash
-for i in {1..100}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cloud/MPI.py;done
+for i in {1..100}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cloud/MPI.py; done
 ```
