@@ -100,3 +100,9 @@ mpiexec -np 5 --hostfile maqs.txt python3 MPI4.py
 * Mesma ideia da **Terceira Versão** porém, utiliza-se o método reduce.
 * Obs: O número após -np deve ser multiplo de 840!
 * Esta versão foi criada para observar o tempo de execução de **processamento** do algoritmo, observando o tempo de execução do processo que durou mais e incluindo com o **tempo de troca de mensagens**.
+
+### Comando para executar 100 vezes cada script
+
+```bash
+for i in {1..100}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cloud/MPI.py;done
+```
