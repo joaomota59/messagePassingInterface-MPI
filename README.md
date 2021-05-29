@@ -109,3 +109,22 @@ for i in {1..100}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cl
 * OBS:
 > * O número após -np é o número de processos correspondente a cada versão!
 > * O arquivo correspondente após /cloud/ deve ser passado neste exemplo foi MPI.py
+
+
+## Testes
+
+### Testes com algoritmos rodando somente uma vez, mostrando o resultado calculado por cada processo e o tempo de execução
+* Primeira Versão - MPI.py
+![Primeira Versão](https://imgur.com/AwVuU1f.png)
+
+* Segunda Versão - MPI2.py
+![Segunda Versão](https://imgur.com/OIbtn8V.png)
+
+* Terceira Versão - MPI3-1.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos
+![Terceira Versão](https://imgur.com/59xWSRt.png)
+
+* Terceira Versão - MPI3-2.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos incluindo o tempo com troca de mensagens.
+![Terceira Versão](https://imgur.com/xGLDTZN.png)
+
+* Terceira Versão - MPI3-2.py - Resultado para 5 processos - Resultado individual de cada processo
+![Terceira Versão](https://imgur.com/P0bOyhg.png)
