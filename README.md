@@ -161,4 +161,5 @@ for i in {1..300}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cl
 * Quarta Versão - MPI4-2.py - Tempo de sendv e recv para 10 processos executado N vezes/ tempo da comunicação entre processos
 ![Quarta Versão](https://imgur.com/gQzj87s.png)
 
-
+###Arquivo somaArquivo.py
+* Este arquivo é utilizado como auxiliar para fazer a soma de todos processos em cada versão.
