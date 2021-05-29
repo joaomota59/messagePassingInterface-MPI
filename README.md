@@ -107,5 +107,5 @@ mpiexec -np 5 --hostfile maqs.txt python3 MPI4.py
 for i in {1..100}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cloud/MPI.py; done
 ```
 * OBS:
-> O número após -np é o número de processos correspondente a cada versão!
-> O arquivo correspondente após /cloud/ deve ser passado neste exemplo foi MPI.py
+> * O número após -np é o número de processos correspondente a cada versão!
+> * O arquivo correspondente após /cloud/ deve ser passado neste exemplo foi MPI.py
