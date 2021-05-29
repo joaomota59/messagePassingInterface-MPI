@@ -128,3 +128,13 @@ for i in {1..100}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cl
 
 * Terceira Versão - MPI3-2.py - Resultado para 5 processos - Resultado individual de cada processo
 ![Terceira Versão](https://imgur.com/P0bOyhg.png)
+
+* Quarta Versão - MPI4-1.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos
+![Quarta Versão](https://imgur.com/PEvZa1K.png)
+
+* Quarta Versão - MPI4-2.py - Tempo de execução para 2 processos e para 10 processos / tempo da execução dos cálculos incluindo o tempo com troca de mensagens.
+![Quarta Versão](https://imgur.com/6IHrBeQ.png)
+
+* Quarta Versão - MPI4-2.py - Resultado para 5 processos - Resultado individual de cada processo
+![Quarta Versão](https://imgur.com/4QhVNaI.png)
+
