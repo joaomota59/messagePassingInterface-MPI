@@ -1,9 +1,5 @@
 from mpi4py import MPI
 
-# rank 0 (1 - N/2) 
-# rank 1 (N/2+1 - N)
-
-
 def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     N = 840
     i = int(1 + (N/nroProcesso)*rank)
@@ -14,27 +10,6 @@ def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     #print(i,k)#intervalos
     #print((somatorio/N)*4)#somatorio de cada intervalo
     return (somatorio/N)*4
-
-#1 fazer com que todos calculem o valor de PI 
-#PS: Falta medir o tempo!!
-#print("ID do processo = ["+str(rank)+"] na maquina "+str(idmaquina) + " PI = " + str(mpiPI()))
-
-
-#Enviar um dado específico para algum processo 
-#tag e o id da mensagem - envio uma msg com um id e espero receber a msg com o mesmo id
-
-'''
-if rank == 0:
-	print("Processo " + str(rank) +  " enviando o numero 100 para o processo 1")
-	comm.send(100, dest=1,tag=11)
-if rank == 1:
-	print("Processo " + str(rank) + " mostrando o que recebeu do processo 0")
-	n = comm.recv(source=0,tag=11)
-	#print(str(n))
-	print("Processo",rank, "recebeu o numero ",n)
-'''
-
-
 
 if __name__ == "__main__": #main -- Segunda versão
     comm = MPI.COMM_WORLD

@@ -12,10 +12,6 @@ def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     #print((somatorio/N)*4)#somatorio de cada intervalo
     return (somatorio/N)*4
 
-#1 fazer com que todos calculem o valor de PI 
-#PS: Falta medir o tempo!!
-#print("ID do processo = ["+str(rank)+"] na maquina "+str(idmaquina) + " PI = " + str(mpiPI()))
-
 if __name__ == "__main__": #main -- Terceira versão
     comm = MPI.COMM_WORLD
     numDeProcessos = comm.Get_size()
@@ -27,20 +23,21 @@ if __name__ == "__main__": #main -- Terceira versão
     else:#se for divisivel por 840 entao divide entre os processos
         idmaquina = MPI.Get_processor_name()#hostname damaquina
         if rank == 0:
+            tinicial = MPI.Wtime()#tempo inicial
             res1 = mpiPI(numDeProcessos,rank)   
-            buffer = [[res1]]#buffer que guarda todos os resultados dos processos
+            buffer = [[res1,tinicial]]#buffer que guarda todos os resultados dos processos
             for i in range(1,numDeProcessos):
                 buffer.append(comm.recv(source = i))
             tfinal=MPI.Wtime()#tempo final é igual para todos processos
-            tinicialDefinitivo = np.array(buffer[1:]).min(axis=0)[1]#pega o menor tempo inicial dos processos
+            tinicialDefinitivo = np.array(buffer).min(axis=0)[1]#pega o menor tempo inicial dos processos
             print("Tempo de execução:",tfinal - tinicialDefinitivo)#tempo de execução em relação ao processo que demorou mais
-            totalPI = np.array(buffer[1:]).sum(axis=0)[0]+res1
+            totalPI = np.array(buffer).sum(axis=0)[0]
             print("Soma de todos processos:",totalPI)#exibe a soma de todos processos
             
             
         else:#se for qualquer processo diferente do processo 1
-            res1 = mpiPI(numDeProcessos,rank)
             tinicial = MPI.Wtime()#tempo inicial
+            res1 = mpiPI(numDeProcessos,rank)
             comm.send([res1,tinicial],dest = 0)
             #print("Inicio",tinicial,"rank:",rank)
             #k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))

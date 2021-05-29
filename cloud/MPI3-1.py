@@ -11,10 +11,6 @@ def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     #print((somatorio/N)*4)#somatorio de cada intervalo
     return (somatorio/N)*4
 
-#1 fazer com que todos calculem o valor de PI 
-#PS: Falta medir o tempo!!
-#print("ID do processo = ["+str(rank)+"] na maquina "+str(idmaquina) + " PI = " + str(mpiPI()))
-
 if __name__ == "__main__": #main -- Terceira versão
     comm = MPI.COMM_WORLD
     numDeProcessos = comm.Get_size()
@@ -35,13 +31,6 @@ if __name__ == "__main__": #main -- Terceira versão
             for i in range(1,numDeProcessos):
                 bufferAux.append(comm.recv(source = i)[1])
             print("Tempo de execução:",max(bufferAux))#tempo de execução do processo que demorou mais
-
-            '''
-            buffer = [res1]#buffer que guarda todos os resultados dos processos
-            for i in range(1,numDeProcessos):
-                buffer.append(comm.recv(source = i)[0])
-            print("Soma de todos processos:",sum(buffer))
-            '''
             
         else:#se for qualquer processo diferente do processo 1
             
