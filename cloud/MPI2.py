@@ -7,10 +7,7 @@ from mpi4py import MPI
 def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     N = 840
     i = int(1 + (N/nroProcesso)*rank)
-    if rank == nroProcesso - 1:#quando for o ultimo processo
-        k = 840
-    else:
-        k = int((N/nroProcesso)*(rank+1))
+    k = int((N/nroProcesso)*(rank+1))
     somatorio = 0
     for j in range(i,k+1):
         somatorio += 1/(1+((j-0.5)/N)**2)
