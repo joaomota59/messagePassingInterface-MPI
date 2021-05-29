@@ -1,6 +1,7 @@
 from mpi4py import MPI
 import numpy as np
 
+arquivo = open("etapa3-2.txt","a")
 def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     N = 840
     i = int(1 + (N/nroProcesso)*rank)
@@ -30,9 +31,11 @@ if __name__ == "__main__": #main -- Terceira versão
                 buffer.append(comm.recv(source = i))
             tfinal=MPI.Wtime()#tempo final é igual para todos processos
             tinicialDefinitivo = np.array(buffer).min(axis=0)[1]#pega o menor tempo inicial dos processos
-            print("Tempo de execução:",tfinal - tinicialDefinitivo)#tempo de execução em relação ao processo que demorou mais
+            #print("Tempo de execução:",tfinal - tinicialDefinitivo)#tempo de execução em relação ao processo que demorou mais
+            arquivo.write(str(tfinal - tinicialDefinitivo)+"\n")
+            arquivo.close()
             totalPI = np.array(buffer).sum(axis=0)[0]
-            print("Soma de todos processos:",totalPI)#exibe a soma de todos processos
+            #print("Soma de todos processos:",totalPI)#exibe a soma de todos processos
             
             
         else:#se for qualquer processo diferente do processo 1

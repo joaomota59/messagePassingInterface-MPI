@@ -2,6 +2,7 @@ from mpi4py import MPI
 import numpy
 
 
+arquivo = open("etapa4-2.txt","a")
 def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     N = 840
     i = int(1 + (N/nroProcesso)*rank)
@@ -34,9 +35,10 @@ if __name__ == "__main__": #main -- Quarta versão
         tfinal=MPI.Wtime()
         comm.send(tfinal - tinicial,dest = 0)#Envia para o rank 0 o tempo de todos processos
         if rank == 0:
-            print("Soma de todos processos:",total[0])
+            #print("Soma de todos processos:",total[0])
             bufferAux = []
             for i in range(0,numDeProcessos):
                 bufferAux.append(comm.recv(source = i))
-            print("Tempo de execução:",max(bufferAux))#exibe o tempo do processo que demorou mai
-            
+            #print("Tempo de execução:",max(bufferAux))#exibe o tempo do processo que demorou mai
+            arquivo.write(str(max(bufferAux))+"\n")
+            arquivo.close()

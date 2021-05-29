@@ -1,5 +1,6 @@
 from mpi4py import MPI
 
+arquivo = open("etapa2.txt","a")
 def mpiPI(nroProcesso, rank):#funcao que calcula o valor aprox de pi
     N = 840
     i = int(1 + (N/nroProcesso)*rank)
@@ -16,17 +17,19 @@ if __name__ == "__main__": #main -- Segunda versão
     rank = comm.Get_rank()#rank do processo atual
     numDeProcessos = comm.Get_size()#numero de processos
     idmaquina = MPI.Get_processor_name()#hostname damaquina
-    comm.Barrier()
+    comm.Barrier()#barreira inicio
     tinicial = MPI.Wtime()
     res1 = mpiPI(comm.Get_size(),rank)
-    comm.Barrier()
+    comm.Barrier()#barreira fim
     tfinal=MPI.Wtime()
     k = ("Resposta do processo [" + str(rank) + "] = " + str(res1) + " ID Máquina = "+str(idmaquina))
-    print("-"*len(k)+"\n"+k+"\n")
+    #print("-"*len(k)+"\n"+k+"\n")
     if rank == 0:
         bufferAux = [tfinal-tinicial]
         for i in range(1,numDeProcessos):
             bufferAux.append(comm.recv(source = i))
-        print("Tempo de execução:",max(bufferAux))#tempo do processo que durou mais
+        arquivo.write(str(max(bufferAux))+"\n")
+        arquivo.close()
+        #print("Tempo de execução:",max(bufferAux))#tempo do processo que durou mais
     else:
         comm.send(tfinal-tinicial,dest = 0)
