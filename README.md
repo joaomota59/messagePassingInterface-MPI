@@ -115,7 +115,7 @@ for i in {1..300}; do mpiexec -np 3 --hostfile maqs.txt python3 /home/mpiuser/cl
 
 ### Testes com algoritmos rodando somente uma vez, mostrando o resultado calculado por cada processo e o tempo de execução
 * Primeira Versão - MPI.py
-![Primeira Versão](https://imgur.com/AwVuU1f.png)
+![Primeira Versão](https://i.imgur.com/AwVuU1f.png)
 
 * Segunda Versão - MPI2.py
 ![Segunda Versão](https://imgur.com/OIbtn8V.png)
